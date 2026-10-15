@@ -1,0 +1,112 @@
+.button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  width: 100%;
+  min-height: 205px;
+  padding: var(--space-2);
+  border-radius: var(--radius-button);
+  border: 2px solid transparent;
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-rest);
+  overflow: hidden;
+  isolation: isolate;
+  transform: translateY(0) scale(1);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
+}
+
+.texture {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: cover;
+  opacity: 0.2;
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  background-color: var(--color-surface-badge);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.icon {
+  width: 60%;
+  height: 60%;
+}
+
+.label {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: var(--fs-title);
+  line-height: 1.143;
+  color: var(--color-accent);
+  word-break: break-word;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-accent);
+  }
+}
+
+.button:active {
+  transform: scale(0.98);
+  box-shadow: var(--shadow-rest);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-accent);
+}
+
+@media (min-width: 768px) {
+  .button {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 154px;
+    padding: 9px 40px 9px 27px;
+    gap: 28px;
+  }
+
+  .iconWrap {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.compact {
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-3);
+}
+
+.compact .label {
+  font-size: var(--fs-body);
+}
+
+@media (min-width: 768px) {
+  .compact {
+    min-height: 0;
+  }
+}

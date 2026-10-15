@@ -1,0 +1,26 @@
+.logo {
+  position: relative;
+  width: 128px;
+  aspect-ratio: 128 / 36;
+  flex-shrink: 0;
+}
+
+.wordmark {
+  position: absolute;
+  inset: 0 0 40.64% 0;
+  width: 100%;
+  height: auto;
+}
+
+.tagline {
+  position: absolute;
+  inset: 70.43% 8.72% 10.43% 33.09%;
+  width: auto;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    width: 289px;
+  }
+}

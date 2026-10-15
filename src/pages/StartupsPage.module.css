@@ -1,0 +1,64 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+}
+
+.content > * {
+  opacity: 0;
+  animation: fade-up var(--dur-slow) var(--ease-out) both;
+  animation-delay: calc(var(--i) * 60ms);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  background-color: var(--color-surface);
+  color: var(--color-accent);
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: var(--fs-small);
+  letter-spacing: 0.02em;
+}
+
+.title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: var(--fs-title);
+  line-height: 1.143;
+  color: var(--color-text);
+  margin-top: var(--space-2);
+}
+
+.message {
+  font-size: var(--fs-body);
+  color: var(--color-text);
+}
+
+.detail {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.backWrap {
+  width: 100%;
+  max-width: 320px;
+  margin-top: var(--space-2);
+}
