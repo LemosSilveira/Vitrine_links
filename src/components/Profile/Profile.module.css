@@ -1,8 +1,8 @@
 .logo {
   position: relative;
-  width: 128px;
+  width: clamp(64px, 15dvh, 128px);
   aspect-ratio: 128 / 36;
-  flex-shrink: 0;
+  flex-shrink: 1;
 }
 
 .wordmark {
@@ -21,6 +21,6 @@
 
 @media (min-width: 768px) {
   .logo {
-    width: 289px;
+    width: clamp(140px, 36dvh, 289px);
   }
 }

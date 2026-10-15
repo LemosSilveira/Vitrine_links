@@ -26,14 +26,20 @@
   --space-1: 0.5rem;
   --space-2: 1rem;
   --space-3: 1.5rem;
-  --space-card-gap: 2.75rem;
+  /* fluido por altura de viewport: igual ao valor fixo original (2.75rem) em telas
+     normais/altas (~844px+), só encolhe em telas curtas pra evitar rolagem. */
+  --space-card-gap: clamp(0.5rem, 5dvh, 2.75rem);
   --nav-padding-x: 1.875rem;
-  --nav-padding-y: 1.5rem;
+  --nav-padding-y: clamp(0.4rem, 2.8dvh, 1.5rem);
 
   /* raio e sombra */
   --radius-button: 15px;
   --shadow-rest: none;
   --shadow-hover: 0 10px 28px rgba(31, 2, 54, 0.35);
+
+  /* altura máxima de cada botão/cartão — trava o tamanho "natural" do Figma;
+     some apenas via flex-shrink quando a tela é baixa demais pra caber sem rolar. */
+  --card-max-h: 205px;
 
   /* movimento — definidos por este PRD, não pelo Figma */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -45,9 +51,10 @@
 @media (min-width: 768px) {
   :root {
     --color-bg: linear-gradient(130deg, var(--color-bg-gradient-start) 12%, var(--color-bg-gradient-end) 90%);
-    --space-card-gap: 4.5rem;
+    --space-card-gap: clamp(0.5rem, 9dvh, 4.5rem);
     --nav-padding-x: 5rem;
-    --nav-padding-y: 1.5625rem;
+    --nav-padding-y: clamp(0.4rem, 3.1dvh, 1.5625rem);
     --radius-button: 30px;
+    --card-max-h: 154px;
   }
 }

@@ -1,4 +1,3 @@
-import type { CSSProperties } from 'react';
 import type { LinkItem } from '../../data/links';
 import styles from './LinkButton.module.css';
 
@@ -7,10 +6,6 @@ type LinkButtonProps = {
 };
 
 export default function LinkButton({ link }: LinkButtonProps) {
-  const imageStyle = {
-    '--img-ratio': `${link.imageWidth} / ${link.imageHeight}`,
-  } as CSSProperties;
-
   const content = (
     <>
       <picture>
@@ -21,7 +16,6 @@ export default function LinkButton({ link }: LinkButtonProps) {
           width={link.imageWidth}
           height={link.imageHeight}
           className={styles.image}
-          style={imageStyle}
           decoding="async"
         />
       </picture>

@@ -1,6 +1,6 @@
 .shell {
   position: relative;
-  min-height: 100dvh;
+  height: 100dvh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -24,6 +24,8 @@
 .navBar {
   position: relative;
   z-index: 1;
+  flex: 0 1 auto;
+  min-height: 0;
   display: flex;
   align-items: center;
   padding: var(--nav-padding-y) var(--nav-padding-x);
@@ -46,12 +48,13 @@
 .main {
   position: relative;
   z-index: 1;
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-3) var(--space-3) calc(var(--space-3) * 2);
+  padding: clamp(0.5rem, 2dvh, 1.5rem) var(--space-3);
 }
 
 @media (min-width: 768px) {
