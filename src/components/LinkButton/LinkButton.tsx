@@ -1,43 +1,44 @@
-import textureTopo from '../../assets/texture-topo.png';
+import type { CSSProperties } from 'react';
 import type { LinkItem } from '../../data/links';
 import styles from './LinkButton.module.css';
 
 type LinkButtonProps = {
-  link: Omit<LinkItem, 'icon'> & { icon?: string };
+  link: LinkItem;
 };
 
 export default function LinkButton({ link }: LinkButtonProps) {
+  const imageStyle = {
+    '--img-ratio': `${link.imageWidth} / ${link.imageHeight}`,
+  } as CSSProperties;
+
   const content = (
     <>
-      <span
-        className={styles.texture}
-        style={{ backgroundImage: `url(${textureTopo})` }}
-        aria-hidden="true"
-      />
-      {link.icon && (
-        <span className={styles.iconWrap}>
-          <img className={styles.icon} src={link.icon} alt="" aria-hidden="true" />
-        </span>
-      )}
-      <span className={styles.label}>
-        {link.label}
-        {link.external && <span className="visually-hidden"> (abre em nova aba)</span>}
-      </span>
+      <picture>
+        {link.imageDesktop && <source media="(min-width: 768px)" srcSet={link.imageDesktop} />}
+        <img
+          src={link.image}
+          alt={link.label}
+          width={link.imageWidth}
+          height={link.imageHeight}
+          className={styles.image}
+          style={imageStyle}
+          decoding="async"
+        />
+      </picture>
+      {link.external && <span className="sr-only"> (abre em nova aba)</span>}
     </>
   );
 
-  const className = link.icon ? styles.button : `${styles.button} ${styles.compact}`;
-
   if (link.external) {
     return (
-      <a className={className} href={link.url} target="_blank" rel="noopener noreferrer">
+      <a className={styles.button} href={link.url} target="_blank" rel="noopener noreferrer">
         {content}
       </a>
     );
   }
 
   return (
-    <a className={className} href={link.url}>
+    <a className={styles.button} href={link.url}>
       {content}
     </a>
   );

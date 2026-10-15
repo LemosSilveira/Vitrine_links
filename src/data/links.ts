@@ -1,6 +1,9 @@
-import iconTecnologica from '../assets/icon-tecnologica.svg';
-import iconStartups from '../assets/icon-startups.svg';
-import iconLaboratorios from '../assets/icon-laboratorios.svg';
+import vitrineTecnologica from '../assets/vitrines/vitrine-tecnologica.svg';
+import vitrineStartups from '../assets/vitrines/vitrine-startups.svg';
+import vitrineLaboratorios from '../assets/vitrines/vitrine-laboratorios.svg';
+import vitrineTecnologicaDesktop from '../assets/vitrines/vitrine-tecnologica-desktop.svg';
+import vitrineStartupsDesktop from '../assets/vitrines/vitrine-startups-desktop.svg';
+import vitrineLaboratoriosDesktop from '../assets/vitrines/vitrine-laboratorios-desktop.svg';
 import logoWordmark from '../assets/logo-wordmark.svg';
 import logoTagline from '../assets/logo-tagline.svg';
 
@@ -11,7 +14,10 @@ export interface LinkItem {
   label: string;
   url: string;
   external: boolean;
-  icon: string;
+  image: string;
+  imageDesktop: string | null;
+  imageWidth: number;
+  imageHeight: number;
 }
 
 export const profile = {
@@ -19,15 +25,18 @@ export const profile = {
   logoTagline,
 };
 
-// Ordem e textos conforme o frame mobile (246:61) — ver docs/figma/design-context-desktop.md
-// para a divergência de ordem/texto encontrada no frame desktop (246:221).
+// Ordem e textos conforme o Figma v2 (mobile 246:61 e desktop 246:221 concordam agora).
+// Ver docs/figma/design-context-{mobile,desktop}-v2.md.
 export const links: LinkItem[] = [
   {
     id: 'vitrine-tecnologica',
     label: 'Vitrine Tecnológica',
     url: 'https://vitrinetecnologicaufc.vercel.app/',
     external: true,
-    icon: iconTecnologica,
+    image: vitrineTecnologica,
+    imageDesktop: vitrineTecnologicaDesktop,
+    imageWidth: 207,
+    imageHeight: 205,
   },
   {
     id: 'vitrine-startups',
@@ -36,14 +45,20 @@ export const links: LinkItem[] = [
     // troque só esta URL pela externa e mude external para true.
     url: `${base}startups/`,
     external: false,
-    icon: iconStartups,
+    image: vitrineStartups,
+    imageDesktop: vitrineStartupsDesktop,
+    imageWidth: 207,
+    imageHeight: 216,
   },
   {
     id: 'vitrine-laboratorios',
     label: 'Vitrine de Laboratórios',
     url: 'http://selinka.ufc.br/vitrines/laboratorios',
     external: true,
-    icon: iconLaboratorios,
+    image: vitrineLaboratorios,
+    imageDesktop: vitrineLaboratoriosDesktop,
+    imageWidth: 207,
+    imageHeight: 205,
   },
 ];
 

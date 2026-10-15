@@ -62,3 +62,58 @@
   max-width: 320px;
   margin-top: var(--space-2);
 }
+
+.backButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 205px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-button);
+  border: 2px solid transparent;
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-rest);
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: var(--fs-body);
+  color: var(--color-accent);
+  text-align: center;
+  transform: translateY(0) scale(1);
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .backButton:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-accent);
+  }
+}
+
+.backButton:active {
+  transform: scale(0.98);
+  box-shadow: var(--shadow-rest);
+}
+
+.backButton:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-accent);
+}
+
+@media (min-width: 768px) {
+  .backButton {
+    min-height: 154px;
+    font-size: 1.5rem;
+  }
+
+  .backWrap {
+    max-width: 480px;
+  }
+}

@@ -1,6 +1,5 @@
 import type { CSSProperties } from 'react';
 import PageShell from '../components/PageShell/PageShell';
-import LinkButton from '../components/LinkButton/LinkButton';
 import { startupsPage } from '../data/links';
 import styles from './StartupsPage.module.css';
 
@@ -21,14 +20,9 @@ export default function StartupsPage() {
           {startupsPage.detail}
         </p>
         <div className={styles.backWrap} style={{ '--i': 4 } as CSSProperties}>
-          <LinkButton
-            link={{
-              id: 'back-to-links',
-              label: startupsPage.backLabel,
-              url: startupsPage.backUrl,
-              external: false,
-            }}
-          />
+          <a className={styles.backButton} href={startupsPage.backUrl}>
+            {startupsPage.backLabel}
+          </a>
         </div>
       </div>
     </PageShell>
